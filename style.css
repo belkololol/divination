@@ -136,25 +136,22 @@ animation-timing-function: linear;
  }
 
  .taro-card {
-    width: 27%;
+     position: absolute;
     height: auto;
     margin: 0;
     box-shadow: 0px 0px 20px 0px rgba(0, 27, 72, 0.75);
+    border-radius: 10px;
+    transition: all 0.25s;
  }
 
  .taro {
-    width: 50%;
-    height: 40%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    display: flex;
-    align-items: center;
-justify-content: space-around;
+    width: 40%;
+    position: relative;
+    top: 20%;
+    margin: 0 auto;
+
  }
+
 
  .container {
     width: 100%;
