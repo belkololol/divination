@@ -135,6 +135,8 @@ animation-timing-function: linear;
      border-radius: 50%;
  }
 
+
+
  .taro-card {
      position: absolute;
     height: auto;
@@ -142,6 +144,11 @@ animation-timing-function: linear;
     box-shadow: 0px 0px 20px 0px rgba(0, 27, 72, 0.75);
     border-radius: 10px;
     transition: all 0.25s;
+      background-image: url(img/taro-back.png);
+ }
+
+ .animate {
+     transform: rotateY(180deg);
  }
 
  .taro {
@@ -149,7 +156,6 @@ animation-timing-function: linear;
     position: relative;
     top: 20%;
     margin: 0 auto;
-
  }
 
 

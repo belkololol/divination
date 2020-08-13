@@ -19,6 +19,7 @@ var cardTaro = [{
 ];
 
 
+
 const cardConteiner = document.querySelector('.taro');
 
 function createCards() {
@@ -35,7 +36,7 @@ function createCards() {
     const newImg = document.createElement('img');
     newImg.id = card.id;
     newImg.classList.add('taro-card');
-    newImg.setAttribute('src', cardTaro[index].image)
+    newImg.setAttribute('src', cardTaro[index].image);
     newImg.style.width = `${divWidth}px`;
     newImg.id = card.id;
     
@@ -83,3 +84,15 @@ createCards();
     clearTimeout(resizeTimerId);
     resizeTimerId = setTimeout(createCards, 500);
     });
+
+    let cards = document.querySelectorAll('.taro-card');
+    cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+            card.classList.add('animate');
+            card.removeAttribute('src');
+            card.setAttribute('src', 'img/taro-back.png');
+    })
+    })
+
+
+ 
