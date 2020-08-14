@@ -231,3 +231,44 @@ select {
         height: 50px;
     }
 }
+
+
+@media (orientation: landscape) {
+    h1 {
+        font-size: 20px;
+  
+    }
+
+    h3 {
+        font-size: 13px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .date-birth {
+        width: 45%;
+        margin-top: 25px;
+        padding: 10px;
+    }
+
+    .eye {
+        width: 60px;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 90px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+     p {
+            font-size: 12px;
+        }
+        .arrow {
+            position: absolute;
+            width: 50px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+}
