@@ -5,7 +5,6 @@ function shuffle(array) {
     }
 }
 
-
 var cardTaro = [{
     id: 'card-0',
     image: 'img/taro.png',
@@ -18,44 +17,35 @@ var cardTaro = [{
 }
 ];
 
-
-
 const cardConteiner = document.querySelector('.taro');
 
 function createCards() {
-    cardConteiner.innerHTML = '';
-
     const divCount = cardTaro.length;
     const margin = 30;
-
     const containerWidth = cardConteiner.clientWidth;
     const divWidth = (containerWidth - (margin * (divCount - 1))) / divCount;
     const divHeight = cardConteiner.clientHeight;
 
     cardTaro.forEach((card, index) => {
         const newImg = document.createElement('img');
+
         newImg.id = card.id;
         newImg.classList.add('taro-card');
         newImg.setAttribute('src', cardTaro[index].image);
         newImg.style.width = `${divWidth}px`;
         newImg.id = card.id;
-
         newImg.style.left = `${index * divWidth + index * margin}px`;
-
         cardConteiner.appendChild(newImg);
     });
 }
 
 createCards();
 
-
-
 function shuffleCards() {
     shuffle(cardTaro);
 
     const divCount = cardTaro.length;
     const margin = 30;
-
     const containerWidth = cardConteiner.clientWidth;
     const divWidth = (containerWidth - (margin * (divCount - 1))) / divCount;
 
@@ -65,41 +55,39 @@ function shuffleCards() {
     });
 }
 
+const intervalCount = 10;
+const intervalValue = 250;
+const intervalStop = intervalValue * intervalCount;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const intervalCount = 10;
-    const intervalValue = 250;
-    const intervalStop = intervalValue * intervalCount;
+const intervalId = setInterval(shuffleCards, intervalValue);
 
-    const intervalId = setInterval(shuffleCards, intervalValue);
-
-    setTimeout(() => {
-        clearInterval(intervalId);
-    }, intervalStop);
-});
-
+setTimeout(() => {
+    clearInterval(intervalId);
+    createAnimation()
+}, intervalStop);
 
 let resizeTimerId = null;
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimerId);
-    resizeTimerId = setTimeout(sizePicture, 500);
+    resizeTimerId = setTimeout(giveDimension, 500);
 });
 
-let cards = document.querySelectorAll('.taro-card');
-cards.forEach((card, index) => {
-    card.addEventListener('click', (e) => {
-        cards.forEach((card, index) => {
-            card.classList.add('hidden');
+function createAnimation() {
+    let cards = document.querySelectorAll('.taro-card');
+    cards.forEach((card, index) => {
+        card.addEventListener('click', (e) => {
+            cards.forEach((card, index) => {
+                card.classList.add('hidden');
+            });
+            e.target.classList.remove('hidden');
+            e.target.classList.add('animate');
+            e.target.removeAttribute('src');
+            e.target.setAttribute('src', 'img/taro-back.png');
         });
-        e.target.classList.remove('hidden');
-        e.target.classList.add('animate');
-        e.target.removeAttribute('src');
-        e.target.setAttribute('src', 'img/taro-back.png');
-    })
-})
+    });
+}
 
-
-function sizePicture () {
+function giveDimensions() {
     const divCount = cardTaro.length;
     const margin = 30;
 
@@ -107,9 +95,7 @@ function sizePicture () {
     const divWidth = (containerWidth - (margin * (divCount - 1))) / divCount;
 
     cards.forEach((card, index) => {
-
-    card.style.width = `${divWidth}px`;
-    card.style.left = `${index * divWidth + index * margin}px`;
-})
+        card.style.width = `${divWidth}px`;
+        card.style.left = `${index * divWidth + index * margin}px`;
+    });
 }
-
