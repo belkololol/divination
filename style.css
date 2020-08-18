@@ -198,7 +198,7 @@ select {
     color: #fff;
 }
 
-@media (orientation: portrait) {
+@media (max-width: 600px) and (orientation: portrait) {
     h1 {
         font-size: 23px;
         overflow: hidden;
@@ -233,7 +233,7 @@ select {
 }
 
 
-@media (orientation: landscape) {
+@media (max-width: 600px) and (orientation: landscape) {
     h1 {
         font-size: 20px;
   
